@@ -1,7 +1,7 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 
-const Listado = () => {
-  const [listado, setListado] = useState([]);
+const Listado = ({ listado, setListado }) => {
+  // const [listado, setListado] = useState([]);
 
   useEffect(() => {
     console.log("Componente del listado de peliculas cargados");
@@ -16,9 +16,7 @@ const Listado = () => {
 
   return (
     <>
-      {listado === null ? (
-        <h2>No hay pelicula para mostrar</h2>
-      ) : (
+      {listado != null ? (
         listado.map((e) => {
           return (
             <article key={e.id} className="peli-item">
@@ -30,6 +28,8 @@ const Listado = () => {
             </article>
           );
         })
+      ) : (
+        <h2>No hay pelicula para mostrar</h2>
       )}
     </>
   );

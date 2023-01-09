@@ -2,7 +2,7 @@ import React from "react";
 import { useState } from "react";
 import { GuardarStorage } from "./helpers/GuardarStorage.js";
 
-const Crear = () => {
+const Crear = ({ setListado }) => {
   const titulo = "Añadir Pelicula ";
   const [pelis, setPelis] = useState({
     titulo: "",
@@ -23,6 +23,10 @@ const Crear = () => {
     };
     //Guardar estado
     setPelis(peli);
+    //Actualizar estado del listado principal
+    setListado((element) => {
+      return [...element, peli];
+    });
 
     //Guardar en el almacenamiento Local
     GuardarStorage("pelis", peli);
