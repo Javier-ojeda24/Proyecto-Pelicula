@@ -1,6 +1,6 @@
 import React from "react";
 
-function Editar({ e, conseguirPeli }) {
+function Editar({ e, conseguirPeli, setEditar, setListado }) {
   const titulo = "Editar Pelicula";
   const guardarEdicion = (evento, id) => {
     evento.preventDefault();
@@ -24,11 +24,12 @@ function Editar({ e, conseguirPeli }) {
     peliculasAlmacenadas[indice] = peliActualizada;
     // console.log(peliculasAlmacenadas);
 
-    // Guardar el nuevo array de objetos en el LocalStoirage 
+    // Guardar el nuevo array de objetos en el LocalStoirage
 
-
+    localStorage.setItem("pelis", JSON.stringify(peliculasAlmacenadas));
     //Actualizar Estados
-    
+    setListado(peliculasAlmacenadas);
+    setEditar(0);
   };
   return (
     <div className="edit_form">

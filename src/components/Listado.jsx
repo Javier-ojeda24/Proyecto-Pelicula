@@ -56,7 +56,13 @@ const Listado = ({ listado, setListado }) => {
                 Borrar
               </button>
               {/* aparece formulario de Editar*/}
-              {editar === e.id && <Editar e={e} conseguirPeli={conseguirPeli} />}
+              {editar === e.id && (
+                <Editar
+                  e={e}
+                  conseguirPeli={conseguirPeli}
+                  setEditar={setEditar} setListado={setListado}
+                />
+              )}
             </article>
           );
         })
