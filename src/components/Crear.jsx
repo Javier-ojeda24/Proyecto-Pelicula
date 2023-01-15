@@ -22,6 +22,7 @@ const Crear = ({ setListado }) => {
       descripcion,
     };
     //Guardar estado
+    // me aburro 
     setPelis(peli);
     //Actualizar estado del listado principal
     setListado((element) => {
